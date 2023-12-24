@@ -16,22 +16,7 @@ const NavBar1 = ({handleExpand}) => {
             />
           </div>
         </div>
-        <div className="absolute top-[43.19rem] left-[2.75rem] hidden flex-row items-center justify-start gap-[1rem]">
-          <img
-            className="relative w-[1.88rem] h-[1.88rem] overflow-hidden shrink-0 object-cover"
-            alt="1"
-            src="/saved@2x.png"
-          />
-          <div className="relative">Saved</div>
-        </div>
-        <div className="absolute top-[48.38rem] left-[2.75rem] hidden flex-row items-center justify-start gap-[1rem]">
-          <img
-            className="relative w-[1.69rem] h-[1.69rem] overflow-hidden shrink-0 object-cover"
-            alt="2"
-            src="/setting@2x.png"
-          />
-          <div className="relative">Setting</div>
-        </div>
+
         <div className="absolute top-[16.44rem] left-[calc(50%_-_90.5px)] flex flex-col items-center justify-start gap-[2.75rem] text-blanco">
           <div className="shrink-0 flex flex-row items-center justify-start gap-[0.81rem]">
             <img
