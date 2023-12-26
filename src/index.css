@@ -8,14 +8,14 @@
 
 @font-face {
   font-family: 'Pangram';
-  src:  url('./fonts/Pangram-Black.otf') ;
+  src:  url('./fonts/Pangram-Black.otf') format('opentype') ;
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Pangram';
-  src:  url('./fonts/Pangram-Light.otf') ;
+  src:  url('./fonts/Pangram-Light.otf') format('opentype');
   font-weight: 300;
   font-style: normal;
 
@@ -23,7 +23,7 @@
 
 @font-face {
   font-family: 'Pangram';
-  src: url('./fonts/Pangram-Medium.otf') ;
+  src: url('./fonts/Pangram-Medium.otf') format('opentype');
   font-weight: 500;
   font-style: normal;
 
