@@ -11,3 +11,8 @@ body {
 ::after {
   border-width: 0;
 }
+
+a {
+  text-decoration: none;
+  color: white;
+}

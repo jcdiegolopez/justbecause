@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Header = ( {manageOpen} ) => {
   return (
     
@@ -28,16 +30,20 @@ const Header = ( {manageOpen} ) => {
               src="./svg/arrow/white.svg"
             />
           </div>
+          <Link to="/cart">
           <img
             className="relative w-[1.44rem] h-[1.36rem] object-cover hover:scale-110 duration-300"
             alt=""
             src="/svg/cart/white.svg"
           />
+          </Link>
+          <Link to="/profile">
           <img
             className="relative w-[1.5rem] h-[1.5rem] object-cover hover:scale-110 duration-300"
             alt=""
             src="./images/sticker.png"
           />
+          </Link>
         </div>
       </div>
     
