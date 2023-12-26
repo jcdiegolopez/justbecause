@@ -1,13 +1,13 @@
 const Header = ( {manageOpen} ) => {
     return (
       
-        <div className="absolute top-[-0.06rem] left-[0rem] bg-morado w-full overflow-hidden flex flex-row items-center justify-between pt-[1.25rem] px-[5.44rem] pb-[1.27rem] box-border ">
+        <div className="absolute top-[-0.06rem] left-[rem] bg-morado w-full overflow-hidden flex flex-row items-center justify-between pt-[1.25rem] px-[2rem] pb-[1.27rem] box-border ">
           <img
             className="relative w-[2.81rem] h-[2.73rem] object-cover hover:scale-110 duration-300"
             alt=""
             src="./images/happyface.png"
           />
-          <div className="shrink-0 flex flex-row items-center justify-start gap-[2rem]">
+          <div className="shrink-0 flex flex-row items-center justify-start gap-[2vw]">
             <div className="shrink-0 flex flex-row items-center justify-start hover:scale-110 duration-300" onClick={manageOpen} >
               <img
                 className="relative w-[1.25rem] h-[1.25rem] overflow-hidden shrink-0 object-cover "
@@ -34,7 +34,7 @@ const Header = ( {manageOpen} ) => {
               src="/svg/cart/white.svg"
             />
             <img
-              className="relative w-[1.88rem] h-[1.88rem] object-cover hover:scale-110 duration-300"
+              className="relative w-[1.5rem] h-[1.5rem] object-cover hover:scale-110 duration-300"
               alt=""
               src="./images/sticker.png"
             />
