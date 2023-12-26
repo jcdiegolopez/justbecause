@@ -23,6 +23,9 @@ const App = () => {
       >
         <NavBar hidden={menuExpand} manageClose={() => {setMenuExpand(false)}}/>
       </Transition>
+      <div className="bg-blue-500 w-full h-full mt-[10vh] flex">
+          <Outlet/>
+      </div>
     
     
     
