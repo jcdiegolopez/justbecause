@@ -10,7 +10,8 @@ module.exports = {
       },
       spacing: {},
       fontFamily: {
-        pangram:["Pangram"]
+        pangram:["Pangram"],
+        century:["Century Gothic"]
         
       },
     },
