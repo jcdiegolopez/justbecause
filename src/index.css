@@ -1,34 +1,9 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@800&family=Mulish:wght@300;500;900&family=Nabla&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: 'Pangram';
-  src: url('./fonts/Pangram-Black.woff2') format('woff2'),
-      url('./fonts/Pangram-Black.woff') format('woff');
-  font-weight: 900;
-  font-style: normal;
-  font-display: swap;
-}
 
-@font-face {
-  font-family: 'Pangram';
-  src: url('./fonts/Pangram-Light.woff2') format('woff2'),
-      url('./fonts/Pangram-Light.woff') format('woff');
-  font-weight: 300;
-  font-style: normal;
-  font-display: swap;
-}
-
-@font-face {
-  font-family: 'Pangram';
-  src: url('./fonts/Pangram-Medium.woff2') format('woff2'),
-      url('./fonts/Pangram-Medium.woff') format('woff');
-  font-weight: 500;
-  font-style: normal;
-  font-display: swap;
-}
 
 
 

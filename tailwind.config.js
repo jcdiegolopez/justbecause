@@ -11,7 +11,8 @@ module.exports = {
       spacing: {},
       fontFamily: {
         pangram:["Pangram"],
-        century:["Century Gothic"]
+        century:["Century Gothic"],
+        mulish:["Mulish"]
         
       },
     },
