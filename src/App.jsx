@@ -1,22 +1,31 @@
-import NavBar1 from "./Components/NavBar1";
-import NavBar2 from "./Components/NavBar2";
+import NavBar from "./Components/NavBar";
+import Header from "./Components/Header";
 import {useState} from 'react';
 import { Outlet } from "react-router-dom";
+import { Transition } from '@headlessui/react'
 
 const App = () => {
-  const [menuExpand, setMenuExpand] = useState(true);
+  const [menuExpand, setMenuExpand] = useState(false);
 
   
 
   return (
-    <div className="flex bg-blanco w-full h-[64rem] overflow-hidden text-left text-[1rem] text-dark2 font-open-sans ">
-    <div className="flex-none">
-      {menuExpand ? <NavBar1 handleExpand={() => setMenuExpand(false)} /> : <NavBar2  handleExpand={() => setMenuExpand(true)} />}
-      
-    </div>
-    <div className="flex-1 bg-blue-500">
-      <Outlet/> 
-    </div>
+    <div className="relative bg-blanco w-full h-[64rem] overflow-hidden text-left text-[1rem] text-blanco font-pangram">
+    <Header manageOpen={()=> setMenuExpand(p => !p)}/>
+    <Transition
+        show={menuExpand}
+        enter="transition-all duration-500"
+        enterFrom="-ml-64"
+        enterTo="ml-0"
+        leave="transition-all duration-500"
+        leaveFrom="-ml-0"
+        leaveTo="-ml-64"
+      >
+        <NavBar hidden={menuExpand} manageClose={() => {setMenuExpand(false)}}/>
+      </Transition>
+    
+    
+    
     
     
     </div>
