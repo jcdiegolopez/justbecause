@@ -26,11 +26,11 @@ const Dropdown = () => {
       <Transition
         show={isOpen}
         enter="transition ease-out duration-200"
-        enterFrom="transform scale-50"
+        enterFrom="transform scale-0"
         enterTo="transform scale-100"
         leave="transition ease-in duration-200"
         leaveFrom="transform scale-100"
-        leaveTo="transform scale-50"
+        leaveTo="transform scale-0"
       >
         <div className="bg-morado w-56 rounded-md shadow-lg py-1">
             {items.map((item,index) => <MenuOption key={index} text={item}/>)}
