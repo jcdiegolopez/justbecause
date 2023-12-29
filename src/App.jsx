@@ -1,14 +1,23 @@
 import NavBar from "./Components/NavBar";
 import Header from "./Components/Header";
 import Footer from "./Components/Footer";
-import {useState} from 'react';
+import LoadingPage from "./Components/LoadingPage";
+import {useState, useEffect} from 'react';
 import { Outlet } from "react-router-dom";
 import { Transition } from '@headlessui/react'
 
 const App = () => {
   const [menuExpand, setMenuExpand] = useState(false);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() =>{
+    setTimeout(() => setLoading(false),3000);
+  },[]);
   
+
+  if(loading) {
+    return <LoadingPage/>
+  }else{
 
   return (
     <div className="bg-blanco w-full min-h-screen overflow-hidden text-left text-[1rem] text-blanco font-mulish">
@@ -40,7 +49,7 @@ const App = () => {
     
     
     </div>
-  );
+  );}
 };
 
 export default App;
