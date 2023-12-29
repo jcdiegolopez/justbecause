@@ -4,7 +4,7 @@ const LoadingPage = () => {
         <div className="flex h-screen w-screen justify-center items-center">
         <div className="flex-container">
         <img
-          className=" w-[5vw] h-[5vw] object-cover duration-300 animate-spin-slow mb-[1vh] ml-[1vh]"
+          className=" h-[7vh] object-cover duration-300 animate-spin-slow"
           alt=""
           src="./images/happyface.png"
         />
