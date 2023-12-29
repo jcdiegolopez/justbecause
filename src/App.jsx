@@ -1,5 +1,6 @@
 import NavBar from "./Components/NavBar";
 import Header from "./Components/Header";
+import Footer from "./Components/Footer";
 import {useState} from 'react';
 import { Outlet } from "react-router-dom";
 import { Transition } from '@headlessui/react'
@@ -10,7 +11,7 @@ const App = () => {
   
 
   return (
-    <div className="relative bg-blanco w-full h-[64rem] overflow-hidden text-left text-[1rem] text-blanco font-mulish">
+    <div className="relative bg-blanco w-full min-h-screen overflow-hidden text-left text-[1rem] text-blanco font-mulish">
     <Header manageOpen={()=> setMenuExpand(p => !p)}/>
     <Transition
         show={menuExpand}
@@ -23,9 +24,16 @@ const App = () => {
       >
         <NavBar hidden={menuExpand} manageClose={() => {setMenuExpand(false)}}/>
       </Transition>
-      <div className="bg-blue-500 w-full h-full mt-[10vh] flex">
-          <Outlet/>
+      <div className="flex flex-col min-h-screen mt-[10vh] ">
+        <div className="flex-grow mb-auto h-full bg-blue-500">
+            <Outlet/>  
+        </div>
+          <Footer/>  
       </div>
+      
+      
+      
+      
     
     
     
