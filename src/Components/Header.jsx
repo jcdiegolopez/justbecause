@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Example from "./DropDown/DropDown";
 
 const Header = ( {manageOpen} ) => {
   return (
@@ -20,16 +21,7 @@ const Header = ( {manageOpen} ) => {
               <div className="relative capitalize font-black">Menu</div>
             </div>
           </div>
-          <div className="shrink-0 flex flex-row items-center justify-start hover:scale-110 duration-300">
-            <div className="shrink-0 flex flex-row items-center justify-start">
-              <div className="relative capitalize font-black">productos</div>
-            </div>
-            <img
-              className="relative w-[1.25rem] h-[1.25rem] overflow-hidden shrink-0 object-cover"
-              alt=""
-              src="./svg/arrow/white.svg"
-            />
-          </div>
+          <Example/>
           <Link to="/cart">
           <img
             className="relative w-[1.44rem] h-[1.36rem] object-cover hover:scale-110 duration-300"

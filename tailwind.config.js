@@ -7,6 +7,7 @@ module.exports = {
         blanco: "#fff",
         morado: "#6d59a0",
         gray: "rgba(255, 255, 255, 0.7)",
+        amarillo: "#fada88",
       },
       spacing: {},
       fontFamily: {

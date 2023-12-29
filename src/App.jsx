@@ -11,7 +11,7 @@ const App = () => {
   
 
   return (
-    <div className="relative bg-blanco w-full min-h-screen overflow-hidden text-left text-[1rem] text-blanco font-mulish">
+    <div className="bg-blanco w-full min-h-screen overflow-hidden text-left text-[1rem] text-blanco font-mulish">
     <Header manageOpen={()=> setMenuExpand(p => !p)}/>
     <Transition
         show={menuExpand}

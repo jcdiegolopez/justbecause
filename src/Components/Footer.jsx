@@ -61,7 +61,7 @@ const Footer = () => {
             </a>
             <a target="_blank" href="https://wa.me/50247695372" className="text-gray-400 hover:text-gray-500">
                 <span className="sr-only">Instagram</span>
-                <svg fill="#000000" height="800px" width="800px" className="w-6 h-6 fill-white" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 308 308" xml:space="preserve">
+                <svg fill="#000000" height="800px" width="800px" className="w-6 h-6 fill-white" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" viewBox="0 0 308 308" xmlSpace="preserve">
                   <g id="XMLID_468_">
                     <path id="XMLID_469_" d="M227.904,176.981c-0.6-0.288-23.054-11.345-27.044-12.781c-1.629-0.585-3.374-1.156-5.23-1.156
                       c-3.032,0-5.579,1.511-7.563,4.479c-2.243,3.334-9.033,11.271-11.131,13.642c-0.274,0.313-0.648,0.687-0.872,0.687
