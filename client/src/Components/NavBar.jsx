@@ -5,7 +5,7 @@ const NavBar = ( {hidden, manageClose} ) => {
   
   return (
     
-      <div className={`absolute bg-morado w-[16.06rem] h-[100vh] overflow-hidden shrink-0 flex flex-col items-center pt-[1.31rem] pb-[1.19rem] pr-[0.44rem] pl-[2.19rem] box-border gap-[5.19rem] rounded-lg`}>
+      <div className={`absolute z-50 bg-morado w-[16.06rem] h-[100vh] overflow-hidden shrink-0 flex flex-col items-center pt-[1.31rem] pb-[1.19rem] pr-[0.44rem] pl-[2.19rem] box-border gap-[5.19rem] rounded-lg`}>
         <div className="w-[12.88rem] h-[9.93rem] overflow-hidden shrink-0 flex flex-col items-start justify-start gap-[5rem]">
           <img
             className="relative w-[12.88rem] h-[0.82rem] overflow-hidden shrink-0 object-cover hover:-translate-x-1 duration-200"

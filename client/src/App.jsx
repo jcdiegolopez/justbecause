@@ -20,7 +20,7 @@ const App = () => {
   }else{
 
   return (
-    <div className="bg-blanco w-full min-h-screen overflow-hidden text-left text-[1rem] text-blanco font-mulish">
+    <div className="bg-blanco relative w-full min-h-screen overflow-hidden text-left text-[1rem] text-blanco font-mulish">
     <Header manageOpen={()=> setMenuExpand(p => !p)}/>
     <Transition
         show={menuExpand}
@@ -33,8 +33,8 @@ const App = () => {
       >
         <NavBar hidden={menuExpand} manageClose={() => {setMenuExpand(false)}}/>
       </Transition>
-      <div className="flex flex-col min-h-screen mt-[10vh] ">
-        <div className="flex-grow mb-auto h-full bg-blue-500">
+      <div className=" z-0 flex flex-col min-h-screen mt-[10vh] ">
+        <div className="relative flex-grow w-full">
             <Outlet/>  
         </div>
           <Footer/>  

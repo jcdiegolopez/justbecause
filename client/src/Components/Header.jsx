@@ -4,7 +4,7 @@ import Example from "./DropDown/DropDown";
 const Header = ( {manageOpen} ) => {
   return (
     
-      <div className="absolute top-[-0.06rem] left-[0rem] bg-morado w-full overflow-hidden flex flex-row items-center justify-between pt-[1.25rem] px-[2rem] pb-[1.27rem] box-border h-[10.2vh]">
+      <div className="absolute z-50 top-[-0.06rem] left-[0rem] bg-morado w-full overflow-hidden flex flex-row items-center justify-between pt-[1.25rem] px-[2rem] pb-[1.27rem] box-border h-[10.2vh]">
         <img
           className="relative w-[2.81rem] h-[2.73rem] object-cover hover:scale-110 duration-300"
           alt=""
