@@ -22,3 +22,25 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+
+# Node.js
+node_modules/
+
+# Build artifacts
+/build
+/dist
+
+# Server-specific
+/servidor/node_modules/
+/servidor/.env
+
+# Client-specific
+/cliente/node_modules/
+/cliente/dist/
+
+# macOS
+.DS_Store
+
+# Environment variables file
+.env
