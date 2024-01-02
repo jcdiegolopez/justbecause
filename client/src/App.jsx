@@ -34,7 +34,7 @@ const App = () => {
         <NavBar hidden={menuExpand} manageClose={() => {setMenuExpand(false)}}/>
       </Transition>
       <div className=" z-0 flex flex-col min-h-screen mt-[10vh] ">
-        <div className="relative flex-grow w-full">
+        <div className="relative flex-grow w-full bg-slate-200">
             <Outlet/>  
         </div>
           <Footer/>  
