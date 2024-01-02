@@ -1,6 +1,12 @@
 const mongoose = require('mongoose');
 
-
+const direccionSchema = new mongoose.Schema({
+  tipo: String,
+  calle: String,
+  ciudad: String,
+  estado: String,
+  codigoPostal: String,
+});
 
 const usuarioSchema = new mongoose.Schema({
   nombre: {
@@ -20,6 +26,7 @@ const usuarioSchema = new mongoose.Schema({
     required: true,
   },
   telefono: String,
+  direcciones: [direccionSchema],
   // Otros campos de usuario si los hay
 });
 
