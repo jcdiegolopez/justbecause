@@ -2,9 +2,9 @@ import Carousel from './Carousel';
 
 const HomePage = () => {
     return (
-        <div className="flex flex-col relative mx-auto mt-[1vw] mx-[1vw]">
+        <div className="flex flex-col relative mt-[1rem] mx-[1rem] justify-center">
         <Carousel/>
-        <h1 className='text-black '>CODCS</h1>
+
         </div>
             
         

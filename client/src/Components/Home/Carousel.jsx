@@ -50,10 +50,10 @@ const Carousel = () => {
       }, [currentIndex]);
     
       return (
-        <div className='sm:h-[50vh] h-[18vh] w-full relative group' >
+        <div className='sm:h-[50vh] h-[18vh] max-w-full relative group' >
           <div 
             style={{ backgroundImage: `url(${slides[currentIndex].url})` }}
-            className='w-full h-full rounded-2xl bg-center bg-cover duration-1000'
+            className='w-full h-full rounded-lg bg-center bg-cover duration-1000 shadow-lg'
             
           ></div>
           {/* Left Arrow */}
