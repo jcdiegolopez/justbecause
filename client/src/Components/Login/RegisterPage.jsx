@@ -33,13 +33,11 @@ const RegisterPage = () => {
       console.log(response.data.msg);
     } catch (err) {
       if (err.response.data.errors && err.response.data.errors.length > 0) {
-        // Manejar errores de validación
         const validationErrors = err.response.data.errors;
         validationErrors.forEach((error) => {
           console.log(`${error.msg} en el campo ${error.path}`);
         });
       } else {
-        // Otros errores, como errores internos del servidor
         console.log(err.response.data.msg);
       }
     }
