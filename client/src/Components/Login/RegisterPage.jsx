@@ -1,5 +1,7 @@
 import  { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 
 const RegisterPage = () => {
   const [formData, setFormData] = useState({
@@ -17,11 +19,32 @@ const RegisterPage = () => {
     }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Your form submission logic here
-    console.log("Form submitted:", formData);
+    console.log(formData)
+    try {
+      const response = await axios.post("http://localhost:3001/registrar", {
+        nombre: formData.name,
+        correo: formData.email,
+        contrasena: formData.password,
+        tipo: "cliente",
+        confirmPassword: formData.confirmPassword,
+      });
+      console.log(response.data.msg);
+    } catch (err) {
+      if (err.response.data.errors && err.response.data.errors.length > 0) {
+        // Manejar errores de validación
+        const validationErrors = err.response.data.errors;
+        validationErrors.forEach((error) => {
+          console.log(`${error.msg} en el campo ${error.path}`);
+        });
+      } else {
+        // Otros errores, como errores internos del servidor
+        console.log(err.response.data.msg);
+      }
+    }
   };
+  
 
   return (
     <div className="min-h-screen flex items-center justify-center relative text-slate-400 py-[2rem]">

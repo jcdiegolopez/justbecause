@@ -1,10 +1,11 @@
 import  { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 const LoginPage = () => {
   const [formData, setFormData] = useState({
-    email: "",
-    password: "",
+    correo: "",
+    contrasena: "",
   });
 
   const handleInputChange = (e) => {
@@ -15,10 +16,14 @@ const LoginPage = () => {
     }));
   };
 
-  const handleFormSubmit = (e) => {
+  const handleFormSubmit = async (e) => {
     e.preventDefault();
-    // Your form submission logic here
-    console.log("Form submitted:", formData);
+    try {
+      const response = await axios.post("http://localhost:3001/login",formData);
+      console.log(response.data.msg);
+    }catch (err) {
+      console.log(err.response.data.msg);
+    }
   };
 
   return (
@@ -35,27 +40,27 @@ const LoginPage = () => {
           <div className="w-[30%] bg-slate-200 h-[0.1rem]"></div>
         </div>
         <form onSubmit={handleFormSubmit} className="w-[75%] relative flex flex-col mb-[1rem]">
-          <label htmlFor="email" className="mb-2 text-[0.9rem] text-start text-slate-500">
-            Email:
+          <label htmlFor="correo" className="mb-2 text-[0.9rem] text-start text-slate-500">
+            correo:
           </label>
           <input
-            id="email"
+            id="correo"
             type="email"
-            name="email"
+            name="correo"
             placeholder="mail@ejemplo.com"
-            value={formData.email}
+            value={formData.correo}
             onChange={handleInputChange}
             className="flex items-center w-[90%] px-5 py-4 mr-2 text-sm font-medium outline-none focus:bg-slate-200 mb-7 placeholder:text-slatey-500 bg-slate-100 text-dark-grey-900 rounded-2xl"
           />
-          <label htmlFor="password" className="mb-2 text-[0.9rem] text-start text-slate-500">
+          <label htmlFor="contrasena" className="mb-2 text-[0.9rem] text-start text-slate-500">
             Contraseña:
           </label>
           <input
-            id="password"
+            id="contrasena"
             type="password"
-            name="password"
+            name="contrasena"
             placeholder="Tu contraseña"
-            value={formData.password}
+            value={formData.contrasena}
             onChange={handleInputChange}
             className="flex items-center w-[90%] px-5 py-4 mb-5 mr-2 text-sm font-medium outline-none focus:bg-slate-200 placeholder:text-slate-500 bg-slate-100 text-dark-grey-900 rounded-2xl"
           />
