@@ -1,8 +1,10 @@
 import  { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link , Navigate } from "react-router-dom";
 import axios from "axios";
+import { useUser } from '../../Hooks/userHook';
 
 const LoginPage = () => {
+  const { user, loginUser } = useUser();
   const [formData, setFormData] = useState({
     correo: "",
     contrasena: "",
@@ -19,12 +21,18 @@ const LoginPage = () => {
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:3001/login",formData);
-      console.log(response.data.msg);
-    }catch (err) {
+      const response = await axios.post('http://localhost:3001/login', formData);
+      loginUser(response.data.user);
+      localStorage.setItem('token', response.data.token);
+      localStorage.setItem("expirationDate", response.data.exp);
+    } catch (err) {
       console.log(err.response.data.msg);
     }
   };
+
+  if (user) {
+    return <Navigate to="/home" />;
+  }
 
   return (
     <div className="h-screen flex items-center justify-center relative text-slate-400">

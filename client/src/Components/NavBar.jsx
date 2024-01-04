@@ -1,8 +1,9 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import { useState } from "react";
+import {useUser} from "../Hooks/userHook";
 
 const NavBar = ( {hidden, manageClose} ) => {
-  
+  const {logoutUser, user} = useUser();
   return (
     
       <div className={`absolute z-50 bg-morado w-[16.06rem] h-[100vh] overflow-hidden shrink-0 flex flex-col items-center pt-[1.31rem] pb-[1.19rem] pr-[0.44rem] pl-[2.19rem] box-border gap-[5.19rem] rounded-lg`}>
@@ -21,7 +22,7 @@ const NavBar = ( {hidden, manageClose} ) => {
         </div>
         <div className="w-[13.44rem] h-[46.38rem] overflow-hidden flex flex-col items-start justify-start">
           <div className="flex flex-col items-center justify-start gap-[2.75rem] h-[14.06rem] ml-[0.31rem]">
-            <NavLink to='/login' className={({isActive}) => isActive ? "text-amarillo" : undefined}>
+            {!user && <NavLink to='/login' className={({isActive}) => isActive ? "text-amarillo" : undefined}>
             <div className="shrink-0 flex flex-row items-center justify-start gap-[0.81rem] hover:scale-110 duration-300">
               <img
                 className="relative w-[1.88rem] h-[1.88rem] overflow-hidden shrink-0 object-cover"
@@ -30,7 +31,7 @@ const NavBar = ( {hidden, manageClose} ) => {
               />
               <div className="relative font-black">Login</div>
             </div>
-            </NavLink>
+            </NavLink>}
             <NavLink to='/Home' className={({isActive}) => isActive ? "text-amarillo" : undefined}>
             <div className="shrink-0 flex flex-row items-start justify-start gap-[1.31rem] hover:scale-110 duration-300">
               <img
@@ -63,18 +64,21 @@ const NavBar = ( {hidden, manageClose} ) => {
           </NavLink>
           </div>
           <div className="rounded-[5px] bg-morado w-[13.44rem] h-[3.06rem] flex flex-row items-center justify-center pt-[0.44rem] pb-[0.94rem] pr-[0.06rem] pl-[0rem] gap-[0.75rem] text-gray mt-auto ">
+            <Link to={user ? './profile' : '#'}>
             <img
               className="relative w-[1.88rem] h-[1.88rem] object-cover hover:scale-110 duration-300"
               alt=""
               src="./images/sticker.png"
             />
+            </Link>
             <div className="w-[10.44rem] h-[2.31rem] flex flex-row flex-wrap items-center justify-start gap-[1.31rem]">
-              <div className="relative font-medium">Invitado</div>
-              <img
+              <div className="relative font-medium">{user ? user.nombre : "Invitado"}</div>
+              {user && <img
                 className="relative w-[2.19rem] h-[2.19rem] overflow-hidden shrink-0 object-contain hover:scale-110 duration-300"
                 alt=""
                 src="./svg/logout/white.svg"
-              />
+                onClick={() => logoutUser()}
+              />}
             </div>
           </div>
         </div>

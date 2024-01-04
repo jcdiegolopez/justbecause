@@ -1,17 +1,18 @@
+// server.js
 const express = require('express');
 const conectarDB = require('./config/database');
 const Usuario = require('./models/usuarioModels');
 const bcrypt = require('bcrypt');
 const { check, validationResult } = require('express-validator');
-const cors = require('cors'); // Import the cors middleware
+const cors = require('cors');
+const jwt = require('jsonwebtoken');
 
 const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
-
-conectarDB(); // Conectar a la base de datos
-app.use(cors()); 
+app.use(cors());
+conectarDB();
 
 // Ruta para crear un nuevo usuario
 app.post(
@@ -78,9 +79,12 @@ app.post('/login', async (req, res) => {
       return res.status(400).json({ msg: 'Credenciales inválidas' });
     }
 
-    // Aquí podrías generar y devolver un token de autenticación si lo necesitas
+    // Generar token de autenticación
+    const token = jwt.sign({ id: usuario._id, correo: usuario.correo }, 'secreto', { expiresIn: '1h' });
 
-    res.status(200).json({ msg: 'Inicio de sesión exitoso' });
+    const expirationDate = Math.floor(Date.now() / 1000) + 60 * 60;
+
+    res.status(200).json({ token, user: { _id: usuario._id, nombre: usuario.nombre, correo: usuario.correo, tipo: usuario.tipo }, exp: expirationDate });
   } catch (error) {
     console.error(error);
     res.status(500).send('Error interno del servidor');

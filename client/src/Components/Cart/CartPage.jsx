@@ -2,7 +2,7 @@ import {Link} from 'react-router-dom'
 
 const CartPage = () => {
     return (
-        <div className="flex"><h1>Cart</h1>
+        <div className="flex flex-wrap"><h1>Cart</h1>
         <h1>Cart</h1>
         <h1>Cart</h1>
         <h1>Cart</h1>

@@ -1,7 +1,14 @@
 import { Link } from "react-router-dom";
 import Example from "./DropDown/DropDown";
+import {useUser} from "../Hooks/userHook";
+
+
+
+
 
 const Header = ( {manageOpen} ) => {
+  const {user} = useUser();
+
   return (
     
       <div className="absolute z-50 top-[-0.06rem] left-[0rem] bg-morado w-full overflow-hidden flex flex-row items-center justify-between pt-[1.25rem] px-[2rem] pb-[1.27rem] box-border h-[10.2vh]">
@@ -29,7 +36,7 @@ const Header = ( {manageOpen} ) => {
             src="/svg/cart/white.svg"
           />
           </Link>
-          <Link to="/profile">
+          <Link to={user ? './profile' : '#'}>
           <img
             className="relative w-[1.5rem] h-[1.5rem] object-cover hover:scale-110 duration-300"
             alt=""
