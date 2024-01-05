@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import  { useState, useEffect } from "react";
 import { Link , Navigate } from "react-router-dom";
 import axios from "axios";
 import { useUser } from '../../Hooks/userHook';
@@ -18,10 +18,42 @@ const LoginPage = () => {
     }));
   };
 
+  useEffect(() => {
+    // Verificar si hay parámetros en la URL para manejar la redirección desde Google
+    const urlParams = new URLSearchParams(window.location.search);
+    const token = urlParams.get("token");
+    const userId = urlParams.get("userId");
+    const userName = urlParams.get("userName");
+    const userEmail = urlParams.get("userEmail");
+    const userType = urlParams.get("userType");
+    const exp = urlParams.get("exp");
+
+    if (token && userId && userName && userEmail && userType && exp) {
+      // Almacenar datos en el cliente
+      loginUser({
+        _id: userId,
+        nombre: userName,
+        correo: userEmail,
+        tipo: userType,
+      });
+      localStorage.setItem("token", token);
+      localStorage.setItem("expirationDate", exp);
+      window.history.replaceState({}, document.title, window.location.pathname)
+    }
+  }, []);
+
+  const iniciarSesionConGoogle = async () => {
+    try {
+      window.open('http://localhost:5000/auth/google/callback','_self');
+    } catch (error) {
+      console.error('Error al iniciar sesión con Google:', error);
+    }
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('http://localhost:3001/login', formData);
+      const response = await axios.post('http://localhost:5000/auth/login', formData);
       loginUser(response.data.user);
       localStorage.setItem('token', response.data.token);
       localStorage.setItem("expirationDate", response.data.exp);
@@ -38,10 +70,10 @@ const LoginPage = () => {
     <div className="h-screen flex items-center justify-center relative text-slate-400">
       <div className="flex relative flex-col items-center lg:min-h-[50vh] lg:min-w-[30vw] sm:min-w-[60vw] sm:min-h-[40vh]  min-w-[85vw] min-h-[50vh] md:min-h-[30vh] md:min-w-[30vw] bg-white rounded-lg shadow-lg gap-[0.5rem]">
         <h1 className="text-slate-600 mt-[3rem]">Log In</h1>
-        <a className="flex items-center justify-center w-[75%] py-[1rem] text-sm font-medium transition duration-300 rounded-2xl text-slate-500 bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-300">
+        <div onClick={iniciarSesionConGoogle} className="flex items-center justify-center w-[75%] py-[1rem] text-sm font-medium transition duration-300 rounded-2xl text-slate-500 bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-300">
           <img className="h-[1.2rem] mr-[1rem]" src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png" alt="" />
           Inicia sesión con Google
-        </a>
+        </div>
         <div className="flex flex-row w-full justify-center items-center">
           <div className="w-[30%] bg-slate-200 h-[0.1rem]"></div>
           <p className="mx-[1rem]">or</p>

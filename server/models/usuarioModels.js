@@ -9,6 +9,9 @@ const direccionSchema = new mongoose.Schema({
 });
 
 const usuarioSchema = new mongoose.Schema({
+  googleId: { 
+    type: String, unique: true
+  },
   nombre: {
     type: String,
     required: true,
@@ -23,7 +26,6 @@ const usuarioSchema = new mongoose.Schema({
   },
   contrasena: {
     type: String,
-    required: true,
   },
   telefono: String,
   direcciones: [direccionSchema],

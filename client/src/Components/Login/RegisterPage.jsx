@@ -19,11 +19,22 @@ const RegisterPage = () => {
     }));
   };
 
+  const iniciarSesionConGoogle = async () => {
+    try {
+      
+      // Redirigir a la página de autorización de Google
+      window.open('http://localhost:5000/auth/google/callback','_self');
+    } catch (error) {
+      console.error('Error al iniciar sesión con Google:', error);
+      // Manejar el error en el lado del cliente (por ejemplo, mostrar un mensaje al usuario)
+    }
+  };
+
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     console.log(formData)
     try {
-      const response = await axios.post("http://localhost:3001/registrar", {
+      const response = await axios.post("http://localhost:5000/auth/registrar", {
         nombre: formData.name,
         correo: formData.email,
         contrasena: formData.password,
@@ -48,14 +59,14 @@ const RegisterPage = () => {
     <div className="min-h-screen flex items-center justify-center relative text-slate-400 py-[2rem]">
       <div className="flex relative flex-col items-center lg:min-h-[50vh] lg:min-w-[30vw] sm:min-w-[60vw] sm:min-h-[40vh] min-w-[85vw] min-h-[50vh] md:min-h-[30vh] md:min-w-[30vw] bg-white rounded-lg shadow-lg gap-[0.5rem]">
         <h1 className="text-slate-600 mt-[3rem]">Registro</h1>
-        <a className="flex items-center justify-center w-[75%] py-[1rem] text-sm font-medium transition duration-300 rounded-2xl text-slate-500 bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-300">
+        <div onClick={iniciarSesionConGoogle} className="flex items-center justify-center w-[75%] py-[1rem] text-sm font-medium transition duration-300 rounded-2xl text-slate-500 bg-slate-100 hover:bg-slate-200 focus:ring-4 focus:ring-slate-300">
           <img
             className="h-[1.2rem] mr-[1rem]"
             src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png"
             alt=""
           />
           Regístrate con Google
-        </a>
+        </div>
         <div className="flex flex-row w-full justify-center items-center">
           <div className="w-[30%] bg-slate-200 h-[0.1rem]"></div>
           <p className="mx-[1rem]">o</p>
